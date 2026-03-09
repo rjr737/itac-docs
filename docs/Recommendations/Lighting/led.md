@@ -6,13 +6,13 @@ hide:
 
 # Upgrade to Efficient Lighting Fixtures
 
-Older lighting fixtures using incandescent, fluorescent, or high-intensity discharge (HID) lamps consume significantly more energy than modern LED fixtures to produce the same light output. Replacing inefficient fixtures with LED or other high-efficiency lighting reduces electrical consumption, cooling loads, and maintenance costs.
+Older lighting fixtures using incandescent, fluorescent, or high-intensity discharge (HID) lamps consume significantly more energy than modern LED fixtures to produce the same light output. Replacing inefficient fixtures with LED or other high-efficiency lighting reduces electrical consumption and maintenance costs.
 
 **ARC Code(s):** 2.7142
 
 ## Savings Calculation
 
-Energy savings from efficient lighting fixtures result from reduced wattage to produce the same or better illumination levels. The savings depend on the wattage difference between baseline and proposed fixtures, annual operating hours, and the impact on cooling loads from reduced heat generation.
+Energy savings from efficient lighting fixtures result from reduced wattage to produce the same or better illumination levels. The savings depend on the wattage difference between baseline and proposed fixtures and annual operating hours.
 
 ### Annual Energy Savings
 
@@ -29,68 +29,13 @@ Where:
 - $H$ = Annual operating hours (hours/year). Use 5,793 hours/year if facility-specific operating hours cannot be determined.
 - $N$ = Number of fixtures being replaced
 
-### Cooling Load Reduction
-
-Reduced fixture wattage decreases heat gain to conditioned spaces, reducing cooling energy consumption:
-
-$$
-\Delta kWh_{\text{cool}} = \frac{\Delta kWh_{\text{lighting}} \times F}{COP}
-$$
-
-Where:
-
-- $F$ = Fraction of lighting energy savings that reduces cooling load (see table below)
-- $COP$ = Coefficient of performance for cooling system (use 3.5 for retrofit applications)
-
-| Building Description | F |
-|---------------------|---|
-| HVAC system includes an economizer | 0.35 |
-| No economizer, building area < 2,000 ft² | 0.48 |
-| No economizer, building area 2,000 – 20,000 ft² | $0.48 + \frac{0.195 \times (A - 2000)}{18000}$ |
-| No economizer, building area > 20,000 ft² | 0.675 |
-
-Total annual electric savings:
-
-$$
-\Delta kWh = \Delta kWh_{\text{lighting}} + \Delta kWh_{\text{cool}}
-$$
-
 ### Peak Demand Savings
 
-Summer peak demand savings include both lighting reduction and cooling load impact:
+Peak demand savings from the lighting reduction are:
 
 $$
-\Delta kW_{\text{summer}} = \frac{(W_{\text{baseline}} - W_{\text{proposed}}) \times N \times (1 + G/COP)}{1000}
+\Delta kW = \frac{(W_{\text{baseline}} - W_{\text{proposed}}) \times N}{1000}
 $$
-
-Winter peak demand savings exclude cooling effects:
-
-$$
-\Delta kW_{\text{winter}} = \frac{(W_{\text{baseline}} - W_{\text{proposed}}) \times N}{1000}
-$$
-
-Where:
-
-- $G$ = Estimated lighting energy heat to space (0.73)
-
-!!! warning "Summer and Winter Period Definitions"
-
-    For demand savings calculations, "summer" represents 3 months of the year and "winter" represents 9 months of the year. Apply the appropriate demand savings calculation for each period when estimating annual demand cost savings.
-
-### Annual Demand Savings
-
-Annual demand savings in kW-month are calculated by applying peak factors to the summer and winter demand savings:
-
-$$
-\Delta kW\text{-month} = (\Delta kW_{\text{summer}} \times PF_{\text{summer}} \times 3) + (\Delta kW_{\text{winter}} \times PF_{\text{winter}} \times 9)
-$$
-
-Where:
-
-- $PF_{\text{summer}}$ = Summer peak factor (0.83 for manufacturing facilities)
-- $PF_{\text{winter}}$ = Winter peak factor (0.665 for manufacturing facilities)
-- 3 = number of summer months
-- 9 = number of winter months
 
 Important assumptions to state in the analysis:
 
@@ -98,6 +43,18 @@ Important assumptions to state in the analysis:
 - Baseline and proposed fixture wattages should include ballast/driver losses
 - Light output (lumens) of proposed fixtures should meet or exceed baseline fixtures
 - Verify that proposed fixtures are compatible with existing controls and mounting hardware
+
+??? note "Replacing Ballast-Driven LED Tube Fixtures with LED Troffers"
+
+    When the existing fixtures are Type A LED tubes running through the original magnetic or electronic ballast, the baseline wattage must account for ballast losses in addition to the lamp wattage:
+
+    $$
+    W_{\text{baseline}} = (W_{\text{lamp}} \times N_{\text{lamps}}) + W_{\text{ballast loss}}
+    $$
+
+    Where $W_{\text{lamp}}$ is the rated wattage of one LED tube (from the lamp spec sheet, not the original fluorescent rating), $N_{\text{lamps}}$ is the number of lamps per fixture, and $W_{\text{ballast loss}}$ is the ballast loss in watts. Ballast loss should be taken from manufacturer data or direct measurement. If unavailable, use a default of 4–8 W per ballast for electronic ballasts and 10–15 W per ballast for magnetic ballasts, and document the assumption.
+
+    The proposed LED troffer wattage is taken directly from the fixture spec sheet since it operates on an integrated driver with no external ballast losses. All other calculations follow the standard methodology above.
 
 
 ## Anticipated Costs

@@ -154,6 +154,8 @@ nav = [
     {"Student Handbook" = [
         "handbook/getting-started.md", 
         "handbook/assessment-day.md",
+        "handbook/apparel.md",
+        "handbook/ipad.md",
         {"Getting Paid" = [
             "handbook/entering-hours.md", 
             "handbook/mileage-reimbursement.md", 
