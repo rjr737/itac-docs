@@ -43,41 +43,17 @@ Where:
 - $SF_{\text{EE}}$ = Savings factor for installed control type (from table above)
 - $SF_{\text{base}}$ = Savings factor for baseline condition (0.0 for no controls)
 
-### Cooling Load Reduction
 
-Reduced lighting operating hours and lower fixture illumination decrease heat gain to conditioned spaces, reducing cooling energy consumption:
-
-$$
-\Delta kWh_{\text{cool}} = \frac{\Delta kWh_{\text{ctrl}} \times F}{COP}
-$$
-
-Where:
-
-- $F$ = Fraction of lighting energy savings that reduces cooling load (see table below)
-- $COP$ = Coefficient of performance for cooling system (use 3.5 for retrofit applications)
-
-| Building Description | F |
-|---------------------|---|
-| HVAC system includes an economizer | 0.35 |
-| No economizer, building area < 2,000 ft² | 0.48 |
-| No economizer, building area 2,000 – 20,000 ft² | $0.48 + \frac{0.195 \times (A_{\text{ctrl}} - 2000)}{18000}$ |
-| No economizer, building area > 20,000 ft² | 0.675 |
-
-Total annual electric savings:
-
-$$
-\Delta kWh = \Delta kWh_{\text{ctrl}} + \Delta kWh_{\text{cool}}
-$$
 
 ### Peak Demand Savings
 
-Summer peak demand savings include both lighting reduction and cooling load impact:
+Summer peak demand savings:
 
 $$
-\Delta kW_{\text{summer}} = \frac{W_{\text{ctrl}} \times (SF_{\text{EE}} - SF_{\text{base}}) \times CF_{OS} \times (1 + G/COP)}{1000}
+\Delta kW_{\text{summer}} = \frac{W_{\text{ctrl}} \times (SF_{\text{EE}} - SF_{\text{base}}) \times CF_{OS}}{1000}
 $$
 
-Winter peak demand savings exclude cooling effects:
+Winter peak demand savings:
 
 $$
 \Delta kW_{\text{winter}} = \frac{W_{\text{ctrl}} \times (SF_{\text{EE}} - SF_{\text{base}}) \times CF_{OS}}{1000}
@@ -85,8 +61,7 @@ $$
 
 Where:
 
-- $CF_{OS}$ = Occupancy sensor coincidence factor (facility-specific, ranges from 2.4% to 29.6% for summer, 6.6% to 29.6% for winter)
-- $G$ = Estimated lighting energy heat to space (0.73)
+- $CF_{OS}$ = Occupancy sensor coincidence factor (19.8% for summer, 17.2% for winter)
 
 !!! warning "Summer and Winter Period Definitions"
 
@@ -97,7 +72,6 @@ Important assumptions to state in the analysis:
 - Lighting operating hours should be facility-specific where possible; use 5,793 hours/year if measured data unavailable
 - Control savings factors assume proper installation, commissioning, and maintenance
 - Networked controls (NLC/LLLC) require commissioning to achieve stated savings factors
-- Cooling fraction F depends on HVAC system type and building size
 - Coincidence factors for peak demand vary significantly by facility type and control strategy
 
 !!! warning "Code Compliance and Savings Factor Selection"
