@@ -5,55 +5,71 @@ hide:
 
 # Replace V-Belts with High Efficiency Belts
 
-Traditional V-belts lose energy through friction slip and internal flexing losses, typically operating at 93-95% efficiency. Upgrading to notched (cogged) V-belts improves power transmission efficiency to 97%, reducing electrical consumption on belt-driven fans, pumps, and conveyors while often extending belt service life.
+Traditional V-belts lose energy through friction slip and internal flexing losses, typically operating at 93–95% efficiency. Upgrading to notched (cogged) V-belts improves power transmission efficiency to 97%, reducing electrical consumption on belt-driven fans, pumps, and conveyors while often extending belt service life.
 
 **ARC Code(s):** 2.4111
 
 ## Savings Calculation
 
-Energy savings from high efficiency belts result from reduced transmission losses between the motor and driven equipment. Belt drive efficiency affects the total electrical input required to deliver mechanical power to the load. When a motor drives equipment through a belt system, inefficiencies in the belt drive appear as additional electrical demand at the motor.
+Energy savings result from reduced transmission losses between the motor and driven equipment. Notched (cogged) V-belts provide a drop-in replacement for standard V-belts with a typical efficiency improvement of 2 percentage points (95% to 97%).
 
-Notched (cogged) V-belts provide a drop-in replacement for standard V-belts with typical efficiency improvements of 2 percentage points (95% to 97%).
-
-Shaft power from electrical measurements:
+Motor shaft power from electrical measurements:
 
 $$
 P_{\text{shaft}} = P_{\text{motor,input}} \times \eta_{\text{motor}}
 $$
 
-Power delivered to load through belt drive:
+- $P_{\text{shaft}}$ = motor shaft power output (kW)
+
+- $P_{\text{motor,input}}$ = motor electrical input power (kW)
+
+- $\eta_{\text{motor}}$ = motor efficiency (decimal)
+
+### Annual Energy Savings
+
+Annual energy savings result from the reduced shaft power required to deliver the same mechanical load through a more efficient belt:
 
 $$
-P_{\text{load}} = P_{\text{shaft}} \times \eta_{\text{belt}}
+\Delta kWh = P_{\text{shaft}} \times \left(\frac{1}{\eta_{\text{belt,baseline}}} - \frac{1}{\eta_{\text{belt,new}}}\right) \times H
 $$
 
-Annual energy savings can be calculated directly from the efficiency difference:
+- $\Delta kWh$ = annual energy savings (kWh/yr)
+
+- $P_{\text{shaft}}$ = motor shaft power output (kW)
+
+- $\eta_{\text{belt,baseline}}$ = baseline belt efficiency (decimal)
+
+- $\eta_{\text{belt,new}}$ = new belt efficiency (decimal)
+
+- $H$ = annual operating hours (hrs/yr)
+
+!!! note "Assumptions"
+
+    - Baseline V-belt efficiency: 93%
+
+    - Notched V-belt efficiency: 97%
+
+### Peak Demand Savings
 
 $$
-E_{\text{savings}} = P_{\text{shaft}} \times \left(\frac{1}{\eta_{\text{belt,baseline}}} - \frac{1}{\eta_{\text{belt,new}}}\right) \times \text{Operating Hours}
+\Delta kW_{\text{summer}} = \Delta kW_{\text{winter}} = P_{\text{shaft}} \times \left(\frac{1}{\eta_{\text{belt,baseline}}} - \frac{1}{\eta_{\text{belt,new}}}\right)
 $$
 
-Power savings (kW) represent the reduction in motor input power:
+- $\Delta kW_{\text{summer}}$, $\Delta kW_{\text{winter}}$ = peak demand reduction (kW)
 
 $$
-P_{\text{savings}} = P_{\text{shaft}} \times \left(\frac{1}{\eta_{\text{belt,baseline}}} - \frac{1}{\eta_{\text{belt,new}}}\right)
+\Delta kW\text{-months} = (\Delta kW_{\text{summer}} \times 3) + (\Delta kW_{\text{winter}} \times 9)
 $$
 
-Important assumptions to state in the analysis:
-
-- Baseline V-belt efficiency: 93%
-
-- Notched V-belt efficiency: 97%
+- $\Delta kW\text{-months}$ = annual demand savings (kW-months)
 
 !!! warning "Belt Replacement Timing"
 
-    This recommendation should be implemented at the next scheduled belt replacement, not as an immediate retrofit. Replacing functional V-belts before the end of their service life does not have a worthwhile payback period. 
+    This recommendation should be implemented at the next scheduled belt replacement, not as an immediate retrofit. Replacing functional V-belts before the end of their service life does not have a worthwhile payback period.
 
 ## Anticipated Costs
 
-Belt costs vary by size, type, and length, with prices depending on belt cross-section designation and center distance. Multiple belt applications multiply costs by the number of belts required. Obtain pricing from suppliers based on specific application requirements. 
-
-Because this is *always* done as a lost-opportunity recommendation, there is no labor cost as they would need to do the labor anyway. Thus, the implementation cost is all materials and is simply the difference between cost of an efficient and non-efficient belt. 
+Because this recommendation is always implemented at the next scheduled belt replacement, there is no additional labor cost. The implementation cost is only the price premium between a notched V-belt and a standard V-belt. Obtain pricing from suppliers based on belt cross-section designation and center distance; multiply by the number of belts required.
 
 ## Report Requirements
 
@@ -71,7 +87,7 @@ In addition to the [typical report requirements](../how-to.md) and the recommend
 
 - **Column 6:** Annual energy savings (kWh/yr)
 
-- **Column 7:** Annual power savings (kW)
+- **Column 7:** Annual demand savings (kW-months)
 
 - **Column 8:** Annual cost savings ($/yr)
 

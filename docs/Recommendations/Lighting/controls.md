@@ -69,14 +69,11 @@ Where:
 
 Important assumptions to state in the analysis:
 
-- Lighting operating hours should be facility-specific where possible; use 5,793 hours/year if measured data unavailable
+- Lighting operating hours should be facility-specific
 - Control savings factors assume proper installation, commissioning, and maintenance
 - Networked controls (NLC/LLLC) require commissioning to achieve stated savings factors
 - Coincidence factors for peak demand vary significantly by facility type and control strategy
 
-!!! warning "Code Compliance and Savings Factor Selection"
-
-    Only controls exceeding 2021 IECC C405.2 minimum requirements are eligible for incentives. The baseline savings factor should reflect code-required controls, not the absence of all controls. Verify that the proposed control system provides capabilities beyond minimum code requirements. Networked controls and commissioned LLLC systems achieve higher savings factors (49%) but require professional commissioning to verify performance.
 
 ## Anticipated Costs
 

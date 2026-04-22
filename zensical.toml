@@ -81,6 +81,7 @@ nav = [
             "Recommendations/Motors/high-efficiency.md",
             "Recommendations/Motors/high-eff-belts.md",
             "Recommendations/Motors/proper-size.md",
+            "Recommendations/Motors/install_vfd.md",
             ]},
         {"Lighting" = [
             {"Efficient Lamps" = "Recommendations/Lighting/led.md"},
@@ -149,6 +150,14 @@ nav = [
 
     {"PlotME" = [
         "plotme/index.md",
+    ]},
+
+    {"Report Guidance" = [
+        "Report Guidance/facility-overview.md",
+        "Report Guidance/process.md",
+        "Report Guidance/best-practices.md",
+        "Report Guidance/major-consumers.md",
+        "Report Guidance/utility-analysis.md",
     ]},
 
     {"Student Handbook" = [

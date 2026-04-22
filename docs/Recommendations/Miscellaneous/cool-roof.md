@@ -98,12 +98,12 @@ Winter peak demand savings are zero as cool roofs do not significantly affect lo
 Annual demand savings in kW-month are calculated using only the summer peak savings:
 
 $$
-\Delta kW\text{-month} = \Delta kW_{\text{summer}} \times PF_{\text{summer}} \times 3
+\Delta kW\text{-month} = \Delta kW_{\text{summer}} \times CF_{\text{summer}} \times 3
 $$
 
 Where:
 
-- $PF_{\text{summer}}$ = Summer peak factor (0.83 for manufacturing facilities)
+- $CF_{\text{summer}}$ = Summer coincidence factor (0.83 for manufacturing facilities)
 - 3 = number of summer months
 
 !!! warning "Climate Suitability and Heating Penalty"

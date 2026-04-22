@@ -11,53 +11,89 @@ Oversized motors running at partial load operate at reduced efficiency and power
 
 ## Savings Calculation
 
-Energy savings from proper motor sizing result from operating a motor closer to its optimal load point. Electric motors achieve peak efficiency between 75% and 100% of rated capacity. Motors operating below 50% of rated capacity suffer from reduced efficiency, poor power factor, and excessive magnetizing current that provides no useful work.
+Energy savings result from operating a motor closer to its optimal load point. Electric motors achieve peak efficiency between 75% and 100% of rated capacity. Motors operating below 50% of rated capacity suffer from reduced efficiency, poor power factor, and excessive magnetizing current that provides no useful work.
 
-Identifying oversized motors requires comparing actual operating current to nameplate full load amps (FLA). Motors consistently running at less than 50% of FLA are candidates for downsizing. However, the economic analysis must consider several factors: the efficiency of the existing oversized motor at its actual operating point, the efficiency of a properly-sized new motor at its higher load factor, and the effect on power factor for facilities subject to demand charges.
-
-Actual load factor is calculated as:
+Actual load factor from current measurements:
 
 $$
-\text{Load Factor} = \frac{I_{\text{actual}}}{I_{\text{FLA}}}
+LF = \frac{I_{\text{actual}}}{I_{\text{FLA}}}
 $$
 
-Where $I_{\text{actual}}$ is measured operating current and $I_{\text{FLA}}$ is nameplate full load amps.
+- $LF$ = load factor (decimal)
+
+- $I_{\text{actual}}$ = measured operating current (A)
+
+- $I_{\text{FLA}}$ = nameplate full load amps (A)
 
 Actual mechanical power output:
 
 $$
-P_{\text{shaft,actual}} = \text{HP}_{\text{rated}} \times \text{Load Factor} \times 0.746 \text{ kW/HP}
+P_{\text{shaft}} = HP_{\text{rated}} \times LF \times 0.746
 $$
+
+- $P_{\text{shaft}}$ = actual shaft power output (kW)
+
+- $HP_{\text{rated}}$ = nameplate horsepower (HP)
+
+- $LF$ = load factor (decimal)
+
+- $0.746$ = unit conversion factor (kW/HP)
 
 Motor input power at partial load:
 
 $$
-P_{\text{input,oversized}} = \frac{P_{\text{shaft,actual}}}{\eta_{\text{@load factor}}}
+P_{\text{input,oversized}} = \frac{P_{\text{shaft}}}{\eta_{\text{oversized}}}
 $$
 
-Note that $\eta_{\text{@load factor}}$ must be obtained from motor performance curves, as efficiency varies significantly with load.
+- $P_{\text{input,oversized}}$ = electrical input power of the existing oversized motor (kW)
 
-Select a properly-sized motor with rated capacity near the actual load (targeting 75-90% load factor):
+- $P_{\text{shaft}}$ = actual shaft power output (kW)
 
-$$
-\text{HP}_{\text{properly-sized}} = \frac{P_{\text{shaft,actual}}}{0.746 \times 0.80}
-$$
+- $\eta_{\text{oversized}}$ = efficiency of the oversized motor at its actual load factor (decimal)
 
-(Using 80% target load factor)
+??? note "Obtaining part-load efficiency"
 
-Annual energy savings:
+    $\eta_{\text{oversized}}$ must be obtained from the motor's performance curve, not the nameplate value. Nameplate efficiency is at full load; efficiency degrades significantly below 50% load. Performance curves are available from the motor manufacturer or from MotorMaster+.
 
-$$
-E_{\text{savings}} = \left(P_{\text{input,oversized}} - P_{\text{input,properly-sized}}\right) \times \text{Operating Hours}
-$$
-
-Power savings (kW) represent the reduction in motor input power:
+Select a properly-sized motor targeting 75–90% load factor:
 
 $$
-P_{\text{savings}} = P_{\text{input,oversized}} - P_{\text{input,properly-sized}}
+HP_{\text{new}} = \frac{P_{\text{shaft}}}{0.746 \times 0.80}
 $$
 
+- $HP_{\text{new}}$ = recommended motor size (HP)
 
+- $P_{\text{shaft}}$ = actual shaft power output (kW)
+
+- $0.80$ = target load factor (decimal)
+
+### Annual Energy Savings
+
+$$
+\Delta kWh = \left(P_{\text{input,oversized}} - P_{\text{input,new}}\right) \times H
+$$
+
+- $\Delta kWh$ = annual energy savings (kWh/yr)
+
+- $P_{\text{input,oversized}}$ = electrical input power of the existing oversized motor (kW)
+
+- $P_{\text{input,new}}$ = electrical input power of the properly-sized motor (kW)
+
+- $H$ = annual operating hours (hrs/yr)
+
+### Peak Demand Savings
+
+$$
+\Delta kW_{\text{summer}} = \Delta kW_{\text{winter}} = P_{\text{input,oversized}} - P_{\text{input,new}}
+$$
+
+- $\Delta kW_{\text{summer}}$, $\Delta kW_{\text{winter}}$ = peak demand reduction (kW)
+
+$$
+\Delta kW\text{-months} = (\Delta kW_{\text{summer}} \times 3) + (\Delta kW_{\text{winter}} \times 9)
+$$
+
+- $\Delta kW\text{-months}$ = annual demand savings (kW-months)
 
 !!! warning "Starting Requirements"
 
@@ -65,7 +101,7 @@ $$
 
 ## Anticipated Costs
 
-Motor costs for properly-sized replacements follow the same pricing structure as [high efficiency motor upgrades](high-efficiency.md). Budget 2-4 hours of electrician labor for motors under 25 HP, plus additional time for mechanical modifications if required.
+Motor costs for properly-sized replacements follow the same pricing structure as [high efficiency motor upgrades](high-efficiency.md). Budget 2–4 hours of electrician labor for motors under 25 HP, plus additional time for mechanical modifications if required.
 
 ## Report Requirements
 
@@ -83,9 +119,9 @@ In addition to the [typical report requirements](../how-to.md) and the recommend
 
 - **Column 6:** Annual energy savings (kWh/yr)
 
-- **Column 7:** Annual power savings (kW-month)
+- **Column 7:** Annual demand savings (kW-months)
 
-- **Column 8:** Total Annual cost savings ($/yr)
+- **Column 8:** Annual cost savings ($/yr)
 
 Include a totals row at the bottom for multiple motors.
 
@@ -94,16 +130,16 @@ Include a totals row at the bottom for multiple motors.
 \centering
 \caption{Motor Right-Sizing Recommendations}
 \label{tab:motor-sizing}
-\begin{tabular}{lccccccccc}
+\begin{tabular}{lccccccc}
 \toprule
 Motor & Current & Measured & Recommended & Operating & Energy & Demand & Cost \\
-Location & Size (HP) & Load (\%) & Size (HP) & Hours (hrs/yr) & Savings (kWh/yr) & Savings (kW-month) & Savings (\$/yr) \\
+Location & Size (HP) & Load (\%) & Size (HP) & Hours (hrs/yr) & Savings (kWh/yr) & Savings (kW-months) & Savings (\$/yr) \\
 \midrule
 Pump 1 &  &  &  &  &  &  &  \\
 Fan 3 &  &  &  &  &  &  &  \\
 Compressor 2 &  &  &  &  &  &  &  \\
 \midrule
-\textbf{Total} & \textbf{--} & \textbf{--} & \textbf{--} & \textbf{--} & \textbf{} & \textbf{} & \textbf{} & \textbf{} \\
+\textbf{Total} & \textbf{--} & \textbf{--} & \textbf{--} & \textbf{--} & \textbf{} & \textbf{} & \textbf{} \\
 \bottomrule
 \end{tabular}
 \end{table}

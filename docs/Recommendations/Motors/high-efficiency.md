@@ -11,43 +11,61 @@ Standard efficiency motors waste significant energy as heat during operation. Up
 
 ## Savings Calculation
 
-Energy savings from high efficiency motors result from reduced electrical losses in the windings, magnetic core, and mechanical components. The savings depend on three factors: the efficiency difference between the baseline and new motor, the motor's rated horsepower, and annual operating hours.
+Energy savings result from reduced electrical losses in the windings, magnetic core, and mechanical components. The calculation compares electrical input power required by the existing motor versus a NEMA Premium motor delivering the same mechanical output.
 
-The calculation compares the electrical input power required by the existing standard efficiency motor versus the input power required by a NEMA Premium motor to deliver the same mechanical output. The difference in input power, multiplied by annual operating hours, yields the annual energy savings.
-
-Motor input power is calculated as:
+Motor shaft power from nameplate horsepower:
 
 $$
-P_{\text{shaft}} = P_\text{input} \times \eta
+P_{\text{shaft}} = HP \times 0.746
 $$
 
-Where $P_{\text{shaft}}$ is the mechanical power output (HP converted to kW using 0.746 kW/HP) and $\eta$ is motor efficiency as a decimal.
+- $P_{\text{shaft}}$ = rated mechanical power output (kW)
 
-Annual energy savings are calculated as:
+- $HP$ = motor nameplate horsepower (HP)
 
-$$
-E_{\text{savings}} = \left(\frac{P_{\text{shaft}}}{\eta_{\text{baseline}}} - \frac{P_{\text{shaft}}}{\eta_{\text{premium}}}\right) \times \text{Operating Hours}
-$$
+- $0.746$ = unit conversion factor (kW/HP)
 
-Power savings (kW) represent the reduction in electrical demand:
+### Annual Energy Savings
 
 $$
-P_{\text{savings}} = \frac{P_{\text{shaft}}}{\eta_{\text{baseline}}} - \frac{P_{\text{shaft}}}{\eta_{\text{premium}}}
+\Delta kWh = P_{\text{shaft}} \times \left(\frac{1}{\eta_{\text{baseline}}} - \frac{1}{\eta_{\text{premium}}}\right) \times H
 $$
 
-Annual cost savings are calculated by multiplying the energy savings by the facility's blended electricity rate ($/kWh).
+- $\Delta kWh$ = annual energy savings (kWh/yr)
 
-Important assumptions to state in the analysis:
+- $P_{\text{shaft}}$ = motor shaft power output (kW)
 
-- Motor operates at or near its rated capacity (load factor >75%)
+- $\eta_{\text{baseline}}$ = existing motor efficiency (decimal)
 
-- Operating hours should be measured or estimated based on production schedules
+- $\eta_{\text{premium}}$ = NEMA Premium motor efficiency (decimal)
 
-- Baseline efficiency should be obtained from motor nameplate or manufacturer data
+- $H$ = annual operating hours (hrs/yr)
 
-- NEMA Premium efficiency values can be found in NEMA MG-1 Table 12-12 or manufacturer specifications
+!!! note "Assumptions"
 
-- For older motors (>15 years), consider additional degradation: reduce nameplate efficiency by 1% per year of operation
+    - Motor operates at or near its rated capacity (load factor >75%)
+
+    - Operating hours should be measured or estimated based on production schedules
+
+    - Baseline efficiency should be obtained from motor nameplate or manufacturer data
+
+    - NEMA Premium efficiency values can be found in NEMA MG-1 Table 12-12 or manufacturer specifications
+
+    - For older motors (>15 years), consider additional degradation: reduce nameplate efficiency by 1% per year of operation
+
+### Peak Demand Savings
+
+$$
+\Delta kW_{\text{summer}} = \Delta kW_{\text{winter}} = P_{\text{shaft}} \times \left(\frac{1}{\eta_{\text{baseline}}} - \frac{1}{\eta_{\text{premium}}}\right)
+$$
+
+- $\Delta kW_{\text{summer}}$, $\Delta kW_{\text{winter}}$ = peak demand reduction (kW)
+
+$$
+\Delta kW\text{-months} = (\Delta kW_{\text{summer}} \times 3) + (\Delta kW_{\text{winter}} \times 9)
+$$
+
+- $\Delta kW\text{-months}$ = annual demand savings (kW-months)
 
 !!! warning "Load Factor Verification"
 
@@ -55,19 +73,13 @@ Important assumptions to state in the analysis:
 
 ## Anticipated Costs
 
-Equipment costs for NEMA Premium motors vary with horsepower rating and enclosure type (ODP vs TEFC). Prices depend on vendor, voltage, speed, and mounting configuration. Obtain quotes from local suppliers for project-specific pricing.
+**Equipment:** NEMA Premium motor costs vary with horsepower rating and enclosure type (ODP vs TEFC). Prices depend on vendor, voltage, speed, and mounting configuration. Obtain quotes from local suppliers for project-specific pricing.
 
-Installation labor includes motor removal, new motor installation, alignment (for direct-coupled applications), and electrical connections. For belt-driven applications, sheave installation and belt tensioning are required. Budget 2-4 hours of electrician labor for motors under 25 HP, 4-8 hours for larger motors. If the motor is difficult to access or requires rigging equipment, add additional labor costs.
+**Installation:** Labor includes motor removal, new motor installation, alignment (for direct-coupled applications), and electrical connections. For belt-driven applications, add sheave installation and belt tensioning. Budget 2–4 hours of electrician labor for motors under 25 HP, 4–8 hours for larger motors; add additional time if rigging equipment is required.
 
-Most utility energy efficiency programs offer prescriptive rebates for qualifying motor replacements. Typical incentive structures include:
+Most utility energy efficiency programs offer prescriptive rebates for qualifying motor replacements, including early retirement incentives (replace a working motor before failure) and replace-on-burnout incentives (replace a failed motor with a high efficiency model). Check with the local utility for current offerings and verify eligibility before finalizing cost estimates.
 
-- Early retirement incentives: Replace a working standard efficiency motor before failure (higher rebates)
-
-- Replace-on-burnout incentives: Replace a failed motor with high efficiency model (lower rebates)
-
-Incentives are subject to utility-specific eligibility requirements, which may include minimum efficiency ratings, minimum horsepower thresholds, and minimum annual operating hours. Check with the local utility provider for current incentive offerings and verify eligibility before finalizing cost estimates.
-
-Simple payback periods for high efficiency motor upgrades typically range from 2-5 years for early retirement applications and less than 2 years for replace-on-burnout scenarios after utility incentives. Motors running more than 4,000 hours per year generally show better economics than those with intermittent operation.
+Simple payback periods typically range from 2–5 years for early retirement applications and under 2 years for replace-on-burnout scenarios after utility incentives. Motors running more than 4,000 hours per year generally show better economics than those with intermittent operation.
 
 ## Report Requirements
 
@@ -85,7 +97,7 @@ In addition to the [typical report requirements](../how-to.md) and the recommend
 
 - **Column 6:** Annual energy savings (kWh/yr)
 
-- **Column 7:** Annual power savings (kW)
+- **Column 7:** Annual demand savings (kW-months)
 
 - **Column 8:** Annual cost savings ($/yr)
 
@@ -98,8 +110,8 @@ If multiple motors are being replaced, include a totals row at the bottom.
 \label{tab:high-eff-motors}
 \begin{tabular}{lccccccc}
 \toprule
-Motor Location & HP & Baseline Eff. (\%) & Premium Eff. (\%) & Operating Hours & Energy Savings & Power Savings & Cost Savings \\
- & & & & (hrs/yr) & (kWh/yr) & (kW) & (\$/yr) \\
+Motor Location & HP & Baseline Eff. (\%) & Premium Eff. (\%) & Operating Hours & Energy Savings & Demand Savings & Cost Savings \\
+ & & & & (hrs/yr) & (kWh/yr) & (kW-months) & (\$/yr) \\
 \midrule
 Pump 1 &  &  &  &  &  &  &  \\
 Fan 3 &  &  &  &  &  &  &  \\
@@ -110,5 +122,3 @@ Compressor 2 &  &  &  &  &  &  &  \\
 \end{tabular}
 \end{table}
 ```
-
-
