@@ -5,7 +5,7 @@ hide:
 
 # Facility Overview
 
-The Facility Overview is found under **Introduction** in the LaTeX sidebar. It gives the reader a concise sense of who the client is, what they make, and where they operate — without disclosing any identifying details.
+The Facility Overview is the opening section of the assessment report, found under **Report Sections** → **Introduction.tex** in the LaTeX sidebar. It gives the reader a concise sense of who the client is, what they make, and where they operate — without disclosing any identifying details.
 
 ## What to Write
 
@@ -28,7 +28,7 @@ You do not write this sentence manually — it is produced by filling in the var
 
 ## Filling In the Date and Students
 
-Navigate to the **Variables** section in the LaTeX sidebar → **Report Variables** → look for the block marked `% Report and Students %`. Two commands need to be filled in:
+Navigate to the **Variables** section in the LaTeX sidebar → **Report-Variables.tex** → look for the block marked `% Report and Students %`. Two commands need to be filled in:
 
 **Visit date:**
 ```latex
