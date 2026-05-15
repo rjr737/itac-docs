@@ -83,6 +83,7 @@ These variables populate the **cover page** (Report No., Assessment Date, Locati
 
 ## Overall Recommendation Variables
 
+
 These variables are filled in **after the report is complete**, once all recommendations have been written and their savings calculated. They feed into the **executive summary** and the totals row of the **Summary of Recommendations** table.
 
 ```latex
